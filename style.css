@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans", sans-serif;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #201b2c;
+  font-size: 1.6rem;
+}
+
+body::before {
+  width: 500%;
+  height: 500%;
+  content: "";
+  position: fixed;
+  z-index: -1;
+
+  animation: backgroundRotate 10s ease-in-out infinite;
+  background-image: url(/assets/img/background.svg);
+  float: left;
+}
+
+main {
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-container,
+.right-container,
+.container-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-container,
+.right-container {
+  width: 50vw;
+}
+
+.left-container {
+  flex-direction: column;
+}
+
+.left-container > h1 {
+  font-size: clamp(1.5vw, 3.5vw, 5vw);
+}
+
+.left-container > h1,
+.container-login > h2 {
+  color: #77ffc0;
+}
+
+.right-container .container-login {
+  width: 60%;
+  flex-direction: column;
+  padding: 3rem 3.5rem;
+  background: #28413b9d;
+  border-radius: 2rem;
+  box-shadow: 0 1rem 40px #00000056;
+}
+
+.container-login h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+}
+
+.container-login .textfield {
+  max-width: 18rem;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.container-login .textfield > input {
+  width: 100%;
+  border: none;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: #28413ba9;
+  color: #f0ffffde;
+  font-size: 1.2rem;
+  box-shadow: 0 1rem 40px #00000056;
+  outline: none;
+}
+
+.container-login .textfield > input:invalid {
+  background: #28413bc7;
+}
+
+.container-login .textfield > input::placeholder {
+  color: #f0ffff94;
+}
+
+.container-login .textfield > label {
+  color: #f0ffffde;
+  margin-bottom: 1rem;
+  font-size: clamp(2rem, 2vw, 50px);
+}
+
+.container-login .btn-login {
+  max-width: 100%;
+  width: 18rem;
+  padding: 1.6rem 0.8rem;
+  margin: 2.5rem;
+  border: none;
+  border-radius: 0.8rem;
+  outline: none;
+  font-weight: 800;
+  letter-spacing: 0.3rem;
+  color: #2b134b;
+  background: #00ff88;
+  cursor: pointer;
+  box-shadow: 0 1rem 4rem -1.2rem #00ff8052;
+}
+
+.modal {
+  position: absolute;
+  background-color: #00ff88;
+  border-radius: 1rem;
+  padding: 1rem;
+  top: -20rem;
+  display: none;
+}
+
+.modal.animation-modal {
+  animation: login 5s ease-in-out;
+}
+.container-login .btn-login:hover {
+  animation: btn 0.3s;
+}
+
+@keyframes btn {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  80% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes backgroundRotate {
+  0% {
+    transform: scale(1.01);
+  }
+
+  10% {
+    transform: scale(1.02);
+  }
+
+  20% {
+    transform: scale(1.03);
+  }
+
+  30% {
+    transform: scale(1.04);
+  }
+
+  40% {
+    transform: scale(1.05);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  60% {
+    transform: scale(1.05);
+  }
+
+  70% {
+    transform: scale(1.05);
+  }
+
+  80% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes login {
+  0% {
+    top: -1.5rem;
+  }
+  20% {
+    top: 5rem;
+  }
+}
+@media (max-width: 900px) {
+  main {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .svg {
+    display: none;
+  }
+
+  .right-container {
+    width: 80%;
+  }
+
+  .right-container .container-login {
+    width: 100%;
+  }
+
+  main .left-container h1 {
+    text-align: center;
+  }
+}
